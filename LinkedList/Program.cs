@@ -112,10 +112,8 @@ namespace LinkedList
     /// </summary>
     static void TestFindKthElementFromEndOfLinkedList()
     {
-      Console.WriteLine(nameof(TestRemovingDuplictedFromListsWithExtraBufferAllowed));
+      Console.WriteLine(nameof(TestFindKthElementFromEndOfLinkedList));
       LinkedList linkedList = LinkedListHelpers.GetLinkedListWithRepeatedNodes();
-
-      linkedList.PrintNodes();
 
       int node = LinkedListHelpers.FindKthElementInLinkedList(linkedList.head, 0); //10
 
