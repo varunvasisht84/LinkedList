@@ -13,6 +13,7 @@ namespace LinkedList
       TestReversingOfLinkedList();
       TestAddingOfLists();
       TestAddingOfLists2();
+      TestRemovingDuplictedFromLists();
       Console.ReadLine();
     }
 
@@ -21,13 +22,7 @@ namespace LinkedList
     /// </summary>
     static void TestReversingOfLinkedList()
     {
-      LinkedList linkedList = new LinkedList();
-
-      linkedList.AddNode(10);
-      linkedList.AddNode(11);
-      linkedList.AddNode(12);
-      linkedList.AddNode(13);
-      linkedList.AddNode(14);
+      LinkedList linkedList = LinkedListHelpers.GetLinkedListWithUniqueNodes();
 
       linkedList.PrintNodes();
 
@@ -51,7 +46,9 @@ namespace LinkedList
       linkedList2.AddNode(4);
       linkedList2.AddNode(8);
 
-      Node node = LinkedList.AddTwoLists(linkedList1.head, linkedList2.head);
+      Node node = LinkedListHelpers.AddTwoLists(linkedList1.head, linkedList2.head);
+
+      LinkedListHelpers.PrintNodes(node);
     }
 
     /// <summary>
@@ -71,7 +68,21 @@ namespace LinkedList
       linkedList2.AddNode(4);
       linkedList2.AddNode(8);
 
-      Node node = LinkedList.AddTwoLists(linkedList1.head, linkedList2.head);
+      Node node = LinkedListHelpers.AddTwoLists(linkedList1.head, linkedList2.head);
+
+      LinkedListHelpers.PrintNodes(node);
+    }
+
+    /// <summary>
+    /// Question : Removing the duplicates from a linked list
+    /// </summary>
+    static void TestRemovingDuplictedFromLists()
+    {
+      LinkedList linkedList = LinkedListHelpers.GetLinkedListWithRepeatedNodes();
+
+      Node node = LinkedListHelpers.RemoveDuplicates(linkedList.head);
+
+      LinkedListHelpers.PrintNodes(node);
     }
   }
 }

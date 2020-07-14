@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,22 +26,7 @@ namespace LinkedList
 
     internal void PrintNodes()
     {
-      Node current = head;
-      if (current == null)
-      {
-        Console.WriteLine("List Empty");
-      }
-      else
-      {
-        string listString = string.Empty;
-        while (current != null)
-        {
-          listString = listString + current.data + "->";
-          current = current.next;
-        }
-        listString = listString + "N";
-        Console.WriteLine(listString);
-      }
+      LinkedListHelpers.PrintNodes(head);
     }
 
     internal void ReverseLinkedList()
@@ -62,7 +48,10 @@ namespace LinkedList
           head = current;
       }
     }
+  }
 
+  class LinkedListHelpers
+  {
     internal static Node AddTwoLists(Node X, Node Y)
     {
       Node sumHeadNode = null;
@@ -96,6 +85,74 @@ namespace LinkedList
           Y = Y.next;
       }
       return sumHeadNode;
+    }
+
+    internal static Node RemoveDuplicates(Node node)
+    {
+      return new Node();
+    }
+
+    internal static void PrintNodes(Node node)
+    {
+      if (node == null)
+      {
+        Console.WriteLine("List Empty");
+      }
+      else
+      {
+        string listString = string.Empty;
+        while (node != null)
+        {
+          listString = listString + node.data + "->";
+          node = node.next;
+        }
+        listString = listString + "N";
+        Console.WriteLine(listString);
+      }
+    }
+
+    internal static LinkedList GetLinkedListWithUniqueNodes()
+    {
+      LinkedList linkedList = new LinkedList();
+
+      linkedList.AddNode(10);
+      linkedList.AddNode(11);
+      linkedList.AddNode(12);
+      linkedList.AddNode(13);
+      linkedList.AddNode(14);
+
+      return linkedList;
+    }
+
+    internal static LinkedList GetLinkedListWithRandomNodes(int numberOfNodes)
+    {
+      LinkedList linkedList = new LinkedList();
+
+      Random random = new Random();
+      for (int i = 0; i < numberOfNodes; i++)
+      {
+        linkedList.AddNode(random.Next(0, 100));
+      }
+
+      return linkedList;
+    }
+
+    internal static LinkedList GetLinkedListWithRepeatedNodes()
+    {
+      LinkedList linkedList = new LinkedList();
+
+      linkedList.AddNode(10);
+      linkedList.AddNode(11);
+      linkedList.AddNode(11);
+      linkedList.AddNode(12);
+      linkedList.AddNode(13);
+      linkedList.AddNode(13);
+      linkedList.AddNode(14);
+      linkedList.AddNode(15);
+      linkedList.AddNode(14);
+      linkedList.AddNode(10);
+
+      return linkedList;
     }
   }
 }
