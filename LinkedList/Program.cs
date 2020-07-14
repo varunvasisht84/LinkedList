@@ -35,6 +35,7 @@ namespace LinkedList
     /// </summary>
     static void TestAddingOfLists()
     {
+      Console.WriteLine(nameof(TestAddingOfLists));
       LinkedList linkedList1 = new LinkedList();
 
       linkedList1.AddNode(3);
@@ -56,6 +57,7 @@ namespace LinkedList
     /// </summary>
     static void TestAddingOfLists2()
     {
+      Console.WriteLine(nameof(TestAddingOfLists2));
       LinkedList linkedList1 = new LinkedList();
 
       linkedList1.AddNode(6);
@@ -74,11 +76,14 @@ namespace LinkedList
     }
 
     /// <summary>
-    /// Question : Removing the duplicates from a linked list
+    /// Question : Removing the duplicates from a linked list. Extra space buffer not allowed.
     /// </summary>
     static void TestRemovingDuplictedFromLists()
     {
+      Console.WriteLine(nameof(TestRemovingDuplictedFromLists));
       LinkedList linkedList = LinkedListHelpers.GetLinkedListWithRepeatedNodes();
+
+      linkedList.PrintNodes();
 
       Node node = LinkedListHelpers.RemoveDuplicates(linkedList.head);
 

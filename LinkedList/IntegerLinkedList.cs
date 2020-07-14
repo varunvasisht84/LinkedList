@@ -89,7 +89,23 @@ namespace LinkedList
 
     internal static Node RemoveDuplicates(Node node)
     {
-      return new Node();
+      Node current = node;
+      while(current != null)
+      {
+        Node next = current.next;
+        Node prevToNext = current;
+        while (next != null)
+        {
+          if(current.data == next.data)
+          {
+            prevToNext.next = next.next;
+          }
+          prevToNext = next;
+          next = next.next;
+        }
+        current = current.next;
+      }
+      return node;
     }
 
     internal static void PrintNodes(Node node)
