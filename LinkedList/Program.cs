@@ -14,6 +14,7 @@ namespace LinkedList
       TestAddingOfLists();
       TestAddingOfLists2();
       TestRemovingDuplictedFromLists();
+      TestRemovingDuplictedFromListsWithExtraBufferAllowed();
       Console.ReadLine();
     }
 
@@ -86,6 +87,21 @@ namespace LinkedList
       linkedList.PrintNodes();
 
       Node node = LinkedListHelpers.RemoveDuplicates(linkedList.head);
+
+      LinkedListHelpers.PrintNodes(node);
+    }
+
+    /// <summary>
+    /// Question : Removing the duplicates from a linked list. Extra space buffer not allowed.
+    /// </summary>
+    static void TestRemovingDuplictedFromListsWithExtraBufferAllowed()
+    {
+      Console.WriteLine(nameof(TestRemovingDuplictedFromListsWithExtraBufferAllowed));
+      LinkedList linkedList = LinkedListHelpers.GetLinkedListWithRepeatedNodes();
+
+      linkedList.PrintNodes();
+
+      Node node = LinkedListHelpers.RemoveDuplicatesWithExtraBufferAllowed(linkedList.head);
 
       LinkedListHelpers.PrintNodes(node);
     }

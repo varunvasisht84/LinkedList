@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -104,6 +105,30 @@ namespace LinkedList
           next = next.next;
         }
         current = current.next;
+      }
+      return node;
+    }
+
+    internal static Node RemoveDuplicatesWithExtraBufferAllowed(Node node)
+    {
+      Node current = node;
+      Node previous = node;
+      HashSet<int> hashset = new HashSet<int>();
+
+      while (current != null)
+      {
+        if(hashset.Add(current.data))
+        {
+          // do nothing
+          previous = current;
+          current = current.next;
+        }
+        else
+        {
+          previous.next = current.next;
+          current = current.next;
+        }
+        
       }
       return node;
     }
