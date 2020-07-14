@@ -15,6 +15,7 @@ namespace LinkedList
       TestAddingOfLists2();
       TestRemovingDuplictedFromLists();
       TestRemovingDuplictedFromListsWithExtraBufferAllowed();
+      TestFindKthElementFromEndOfLinkedList();
       Console.ReadLine();
     }
 
@@ -104,6 +105,29 @@ namespace LinkedList
       Node node = LinkedListHelpers.RemoveDuplicatesWithExtraBufferAllowed(linkedList.head);
 
       LinkedListHelpers.PrintNodes(node);
+    }
+
+    /// <summary>
+    /// Question : Find the kth element from last in linked list
+    /// </summary>
+    static void TestFindKthElementFromEndOfLinkedList()
+    {
+      Console.WriteLine(nameof(TestRemovingDuplictedFromListsWithExtraBufferAllowed));
+      LinkedList linkedList = LinkedListHelpers.GetLinkedListWithRepeatedNodes();
+
+      linkedList.PrintNodes();
+
+      int node = LinkedListHelpers.FindKthElementInLinkedList(linkedList.head, 0); //10
+
+      node = LinkedListHelpers.FindKthElementInLinkedList(linkedList.head, 1); // 11
+
+      node = LinkedListHelpers.FindKthElementInLinkedList(linkedList.head, 3); // 12
+
+      node = LinkedListHelpers.FindKthElementInLinkedList(linkedList.head, 5); //13
+
+      node = LinkedListHelpers.FindKthElementInLinkedList(linkedList.head, 2); //11
+
+      node = LinkedListHelpers.FindKthElementInLinkedList(linkedList.head, 6); //14
     }
   }
 }

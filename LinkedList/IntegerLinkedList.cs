@@ -91,13 +91,13 @@ namespace LinkedList
     internal static Node RemoveDuplicates(Node node)
     {
       Node current = node;
-      while(current != null)
+      while (current != null)
       {
         Node next = current.next;
         Node prevToNext = current;
         while (next != null)
         {
-          if(current.data == next.data)
+          if (current.data == next.data)
           {
             prevToNext.next = next.next;
           }
@@ -117,7 +117,7 @@ namespace LinkedList
 
       while (current != null)
       {
-        if(hashset.Add(current.data))
+        if (hashset.Add(current.data))
         {
           // do nothing
           previous = current;
@@ -128,9 +128,32 @@ namespace LinkedList
           previous.next = current.next;
           current = current.next;
         }
-        
+
       }
       return node;
+    }
+
+    internal static int FindKthElementInLinkedList(Node node, int k)
+    {
+      Node runner = node;
+      int kthElementFromLast = -1;
+      for (int i = 0; i <= k; i++)
+      {
+        // K cant be more than length of linked list.
+        if (runner == null)
+        {
+          kthElementFromLast = -1;
+          return kthElementFromLast;
+        }
+        runner = runner.next;
+      }
+
+      while(runner != null)
+      {
+        runner = runner.next;
+        node = node.next;
+      }
+      return node.data;
     }
 
     internal static void PrintNodes(Node node)
